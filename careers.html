@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/html5reset.css">
     <link rel="stylesheet" href="css/style.css">
     <title>Career Development</title>
@@ -16,6 +17,13 @@
                 <li><a href = "careers.html" class="active">Career Development</a></li>
                 <li><a href = "networking.html">Networking</a></li>
                 <li><a href = "employment.html">Alumni Employment</a></li>
+                <li id="more_resources"><a id="drop-link" href="#"><i class="fas fa-angle-down"></i> More Resources</a>
+                  <div id="dropdown-content">
+                    <a href="https://www.si.umich.edu/">UMSI Site</a>
+                    <a href="https://alumni.umich.edu/">UM Alumni</a>
+                    <a href="https://careers.umich.edu/">UM Jobs</a>
+                  </div>
+                </li>
             </ul>
         </nav>
         <h1 class="page_title">Career Development Office</h1>
@@ -27,7 +35,7 @@
   </div>
   <h2 class="section_title">UMSI CDO</h2>
   <iframe width="400" height="300" src="https://www.youtube.com/embed/XkK7QhQ3YCI"title ="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        <p>UMSI's Career Development Office works to provide career services for current students and alumni of the School of Information. Such resources available include resume development workshops, interview practice, and advising on searching for positions.</p>   
+        <p class="video_text">UMSI's Career Development Office works to provide career services for current students and alumni of the School of Information. Such resources available include resume development workshops, interview practice, and advising on searching for positions.</p>   
   <section>
     <p>
       The Career Development Office's team of advisors is comprised of professionals who are here to help you every step of the way throughout your job search. Whether you're a current student looking for an internship or a recent graduate in need of career advice, CDO advisors will assist you. 
@@ -36,7 +44,7 @@
       If you're in need of assistance with your job search, want to prepare for an interview, or are in need of any sort of career advice please schedule an interview with one of our advisors:<a href="https://umich.instructure.com/courses/137916/pages/talk-to-a-career-coach"> Talk to a Career Coach</a>
     </p>
    </section>
-   <h2>CDO Services</h2>
+   <h2 class="section_title">CDO Services</h2>
    <ul class="resource_list">
             <li><Strong>Connect Students with Employers</Strong></li>
             <li><strong>Provide Real World Experience for UMSI Students</strong></li>
@@ -44,7 +52,7 @@
     </ul>
     <img src="images/CDO_Coaching.jpg" class ="resource_image"alt="CDO Career Coach.">
     <section>
-      <h2>CDO Contact Information</h2>
+      <h2 class="section_title">CDO Contact Information</h2>
       <p>
         Email: umsi.careers@umich.edu | Phone: (734) 763-2285
       </p>
@@ -52,12 +60,41 @@
 
     </main>
     <footer>
-      <img src="images/UMSI_vertsig_noU.png" alt="umsi logo">
+        <img src="images/UMSI_vertsig_noU.png" alt="umsi logo">
+        <div id =footerText>
         <p>University of Michigan School of Information | <a href="https://umich.instructure.com/courses/137916">UMSI Career Development Office </a></p>
         <p>School of Information University of Michigan 2200 Hayward Street Ann Arbor, MI 48109</p>
         <p><a href="https://www.si.umich.edu/about-umsi/contact-us">Contact Us</a> | <a href="https://www.si.umich.edu/privacy-statement">Privacy Statement</a></p>
+        </div>
     </footer>
-    
+    <script>
+      const year = document.createElement('p');
+      year.innerHTML = `© Copyright ${Date().slice(11,15)}`
+      document.getElementById("footerText").appendChild(year)
+      const drop_down = document.getElementById('more_resources');
+      const drop_box = document.getElementById('dropdown-content');
+      const drop_link = document.getElementById('drop-link')
+      const icon = document.querySelector("i")
+      let clicked = false;
+      drop_down.addEventListener('click',()=>{
+        if(!clicked){
+            icon.classList ="fas fa-angle-up";
+            clicked = true;
+            drop_box.style.display ="block";
+        }
+        else{
+            icon.classList = "fas fa-angle-down";
+            clicked = false;
+            drop_box.style.display ="none";
+
+        }
+      })
+      drop_link.addEventListener('focus',()=>{
+          icon.classList ="fas fa-angle-up";
+          clicked = true;
+           drop_box.style.display ="block";
+      })
+    </script>
 </body>
 
 </html>

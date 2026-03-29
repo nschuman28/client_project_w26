@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/html5reset.css">
     <link rel="stylesheet" href="css/style.css">
     <title>Alumni Employment</title>
@@ -16,6 +17,13 @@
                 <li><a href = "careers.html">Career Development</a></li>
                 <li><a href = "networking.html">Networking</a></li>
                 <li><a href = "employment.html" class="active">Alumni Employment</a></li>
+                <li id="more_resources"><a id="drop-link" href="#"><i class="fas fa-angle-down"></i> More Resources</a>
+                  <div id="dropdown-content">
+                    <a href="https://www.si.umich.edu/">UMSI Site</a>
+                    <a href="https://alumni.umich.edu/">UM Alumni</a>
+                    <a href="https://careers.umich.edu/">UM Jobs</a>
+                  </div>
+                </li>
             </ul>
         </nav>
         <h1 class = "page_title">UMSI Alumni Employment</h1>
@@ -37,7 +45,7 @@
             <li><strong>Healthcare: </strong>Healthcare companies such as Bluecross Blueshield and Michigan Medicine recruit our students for positions as UX researchers and data managers.</li>
           </ul>  
         </section>
-        <h2>Employment Reports</h2>
+        <h2 class="section_title">Employment Reports</h2>
         <ul class="resource_list">
             <li><a href="https://www.si.umich.edu/student-experience/career-outcomes/2025-bsi-employment-report" target="_blank">
             Bachelor of Science in Information Report</a></li>
@@ -53,10 +61,40 @@
         <img class ="resource_image"src="images/2025_employment.png" alt="employment report">
     </main>
     <footer>
-        <img src="images/UMSI_vertsig_noU.png" alt="">
+        <img src="images/UMSI_vertsig_noU.png" alt="umsi logo">
+        <div id =footerText>
         <p>University of Michigan School of Information | <a href="https://umich.instructure.com/courses/137916">UMSI Career Development Office </a></p>
         <p>School of Information University of Michigan 2200 Hayward Street Ann Arbor, MI 48109</p>
         <p><a href="https://www.si.umich.edu/about-umsi/contact-us">Contact Us</a> | <a href="https://www.si.umich.edu/privacy-statement">Privacy Statement</a></p>
-    </footer>   
+        </div>
+    </footer>
+    <script>
+      const year = document.createElement('p');
+      year.innerHTML = `© Copyright ${Date().slice(11,15)}`
+      document.getElementById("footerText").appendChild(year)
+      const drop_down = document.getElementById('more_resources');
+      const drop_box = document.getElementById('dropdown-content');
+      const drop_link = document.getElementById('drop-link');
+      const icon = document.querySelector("i")
+      let clicked = false;
+      drop_down.addEventListener('click',()=>{
+        if(!clicked){
+            icon.classList ="fas fa-angle-up";
+            clicked = true;
+            drop_box.style.display ="block";
+        }
+        else{
+            icon.classList = "fas fa-angle-down";
+            clicked = false;
+            drop_box.style.display ="none";
+
+        }
+      })
+      drop_link.addEventListener('focus',()=>{
+          icon.classList ="fas fa-angle-up";
+          clicked = true;
+           drop_box.style.display ="block";
+      })
+    </script>
 </body>
 </html>
