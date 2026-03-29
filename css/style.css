@@ -17,6 +17,7 @@ nav a.active{
 nav a.active:hover{
     color: #00274C;
 }
+/* Referenced this page for the following styling: https://www.w3schools.com/howto/howto_js_responsive_navbar_dropdown.asp */
 #more_resources{
     font-weight: bold;
     overflow: hidden;
@@ -39,6 +40,7 @@ nav a.active:hover{
   display: block;
   text-align: left;
 }
+/* End of refrenced content. */
 #dropdown-content a:hover {
     color: #2F65A7;
 }
